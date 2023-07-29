@@ -1,0 +1,55 @@
+<!-- material_views.xml -->
+
+<odoo>
+    <data>
+
+        <!-- Action Window: Material List View -->
+        <record id="action_material_list" model="ir.actions.act_window">
+            <field name="name">Materials</field>
+            <field name="res_model">material</field> 
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new material.
+                </p>
+            </field>
+        </record>
+
+        <!-- View: Material Tree View -->
+        <record id="view_material_tree" model="ir.ui.view">
+            <field name="name">material.tree</field>
+            <field name="model">material</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="type"/>
+                    <field name="buy_price"/>
+                    <field name="supplier_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- View: Material Form View -->
+        <record id="view_material_form" model="ir.ui.view">
+            <field name="name">material.form</field>
+            <field name="model">material</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="type"/>
+                            <field name="buy_price"/>
+                            <field name="supplier_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Menuitem: Material Menu -->
+        <menuitem id="menu_material" name="Materials" parent="base.menu_sales" action="action_material_list"/>
+    </data>
+</odoo>
